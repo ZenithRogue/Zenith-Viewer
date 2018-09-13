@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Zenith Viewer
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.1b
 // @description  try to take over the world!
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js
 // @author       NitroCipher / ZenithKnight
@@ -26,7 +26,7 @@
                 //data is the JSON string
                 parsedURL = data[0].url;
                 //alert(parsedURL);
-                $("yt-player-error-message-renderer").replaceWith(`<video width="720" controls><source src="` +parsedURL+ `" type="video/mp4"></video>`);
+                $("yt-player-error-message-renderer").replaceWith(`<video width="`+document.getElementById("primary-inner").offsetWidth+`" controls><source src="` +parsedURL+ `" type="video/mp4"></video>`);
             });
         }
     }
