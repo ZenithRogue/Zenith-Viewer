@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Zenith Viewer
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.0b
 // @description  try to take over the world!
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js
 // @author       NitroCipher / ZenithKnight
@@ -19,7 +19,7 @@
     var parsedURL;
     var relatedLinks = "<div #upnext style='font-size: 16px;'>Related:</div><br/>";
 
-    setTimeout(function(){ replaceVideo(); }, 9000);
+    setTimeout(function(){ replaceVideo(); }, 3000);
 
     function replaceVideo() {
         if ($("yt-player-error-message-renderer")[0]){
@@ -40,7 +40,7 @@
 
     function getRelated(item, index) {
         //relatedLinks = relatedLinks + "<br/>";
-        relatedLinks = relatedLinks + `<div><a href=https://www.youtube.com/watch?v=` +item.id.videoID+ `><img src=` +item.snippet.thumbnails.medium.url+ `></img><br/></a><p #video-title>` +item.snippet.title+ `</p></div><br/><br/>`;
+        relatedLinks = relatedLinks + `<div style="display: table-row;"><a href=https://www.youtube.com/watch?v=` +item.id.videoId+ `><img width="168" style="display: table-cell;" src=` +item.snippet.thumbnails.medium.url+ `></img></a><div #video-title style="font-size: 14px; font-weight: 500; display: table-cell;">` +item.snippet.title+ `</div></div><br/>`;
     }
 
     function getUrlVars() {
