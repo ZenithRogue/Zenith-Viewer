@@ -1,9 +1,10 @@
 // ==UserScript==
 // @name         Zenith Viewer
 // @namespace    http://tampermonkey.net/
-// @version      1.0b
+// @version      1.2b
 // @description  try to take over the world!
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js
+// @require      https://timeago.yarp.com/jquery.timeago.js
 // @author       NitroCipher / ZenithKnight
 // @match        https://www.youtube.com/watch?v=*
 // @grant        none
@@ -40,7 +41,7 @@
 
     function getRelated(item, index) {
         //relatedLinks = relatedLinks + "<br/>";
-        relatedLinks = relatedLinks + `<div style="display: table-row;"><a href=https://www.youtube.com/watch?v=` +item.id.videoId+ `><img width="168" style="display: table-cell;" src=` +item.snippet.thumbnails.medium.url+ `></img></a><div #video-title style="font-size: 14px; font-weight: 500; display: table-cell;">` +item.snippet.title+ `</div></div><br/>`;
+        relatedLinks = relatedLinks + `<div style="display: flex; flex: none;"><a href=https://www.youtube.com/watch?v=` +item.id.videoId+ `><img width="168" style="flex: 1;" src=` +item.snippet.thumbnails.medium.url+ `></img></a><div #video-title style="font-size: 14px; flex: 1; padding-left: 10px; margin-bottom: 30px;"><div style="font-weight: 500;">` +item.snippet.title+ `</div>` +item.snippet.channelTitle+ `<br/>` +jQuery.timeago(item.snippet.publishedAt)+ `</div></div><br/>`;
     }
 
     function getUrlVars() {
