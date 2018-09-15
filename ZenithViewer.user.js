@@ -1,14 +1,13 @@
 // ==UserScript==
-// @name         Zenith Viewer
+// @name         Permanent Zenith Viewer
 // @namespace    http://tampermonkey.net/
-// @version      1.2c
+// @version      666.1337.420
 // @description  try to take over the world!
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js
 // @require      https://timeago.yarp.com/jquery.timeago.js
 // @author       NitroCipher / ZenithKnight
 // @match        https://www.youtube.com/watch?v=*
 // @grant        none
-// @run-at       document-start
 // ==/UserScript==
 
 (function() {
@@ -30,11 +29,15 @@
         }
     };
 
-    waitForEl("yt-player-error-message-renderer", function() {
+    waitForEl("yt-player-error-message-renderer", function() { //if blocked
         replaceVideo();
     });
 
-    //setTimeout(function(){ replaceVideo(); }, 3000);
+    waitForEl("#movie_player", function() { //if blocked
+        replaceAllVideos();
+    });
+
+    //setTimeout(function(){ replaceAllVideos(); }, 3000);
 
     function replaceVideo() {
         if ($("yt-player-error-message-renderer")[0]){
@@ -49,6 +52,16 @@
                 //alert(data.items[0].snippet.title);
                 data.items.forEach(getRelated);
                 $("#related").replaceWith(relatedLinks);
+            });
+        }
+    }
+    function replaceAllVideos() {
+        if ($("#movie_player")[0]){
+            $.getJSON(newURL, function(data) {
+                //data is the JSON string
+                parsedURL = data[0].url;
+                //alert(parsedURL);
+                $("#movie_player").replaceWith(`<video width="`+document.getElementById("primary-inner").offsetWidth+`" controls><source src="` +parsedURL+ `" type="video/mp4"></video>`);
             });
         }
     }
