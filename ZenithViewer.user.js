@@ -1,13 +1,14 @@
 // ==UserScript==
 // @name         Zenith Viewer
 // @namespace    http://tampermonkey.net/
-// @version      1.2c
+// @version      1.2d
 // @description  try to take over the world!
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js
 // @require      https://timeago.yarp.com/jquery.timeago.js
 // @author       NitroCipher / ZenithKnight
 // @match        https://www.youtube.com/watch?v=*
 // @grant        none
+// @updateURL    https://github.com/NitroCipher/Zenith-Viewer/raw/related/ZenithViewer.user.js
 // @run-at       document-start
 // ==/UserScript==
 
