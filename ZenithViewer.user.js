@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Zenith Viewer
 // @namespace    http://tampermonkey.net/
-// @version      1.2d
+// @version      1.2e
 // @description  try to take over the world!
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js
 // @require      https://timeago.yarp.com/jquery.timeago.js
@@ -43,7 +43,7 @@
                 //data is the JSON string
                 parsedURL = data[0].url;
                 //alert(parsedURL);
-                $("yt-player-error-message-renderer").replaceWith(`<video autoplay width="`+document.getElementById("primary-inner").offsetWidth+`" controls><source src="` +parsedURL+ `" type="video/mp4"></video>`);
+                $("yt-player-error-message-renderer").replaceWith(`<video autoplay width="100%" controls><source src="` +parsedURL+ `" type="video/mp4"></video>`);
             });
             var relatedAPI = "https://www.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=" +vidID+ "&type=video&maxResults=15&key=AIzaSyD1Nal2lugzvpAwTYh7g4W0tETmrjSlxKY";
             $.getJSON(relatedAPI, function(data) {
