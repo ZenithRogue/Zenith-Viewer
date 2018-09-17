@@ -8,7 +8,7 @@
 // @author       NitroCipher / ZenithKnight
 // @match        https://www.youtube.com/watch?v=*
 // @grant        none
-// @updateURL    https://github.com/NitroCipher/Zenith-Viewer/raw/related/ZenithViewer.user.js
+// @updateURL    https://github.com/NitroCipher/Zenith-Viewer/raw/master/ZenithViewer.user.js
 // @run-at       document-start
 // ==/UserScript==
 
