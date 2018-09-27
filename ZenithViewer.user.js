@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Zenith Viewer
 // @namespace    http://tampermonkey.net/
-// @version      1.2e
-// @description  try to take over the world!
+// @version      1.3
+// @description  Replaces blocked videos
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js
 // @require      https://timeago.yarp.com/jquery.timeago.js
 // @author       NitroCipher / ZenithKnight
@@ -15,7 +15,7 @@
 (function() {
     'use strict';
     // Your code here...
-    var baseURL = "https://you-link.herokuapp.com/?url=https://www.youtube.com/watch?v=";
+    var baseURL = "https://zv3.herokuapp.com/?url=https://www.youtube.com/watch?v=";
     var vidID = getUrlVars()["v"];
     var newURL = (baseURL + vidID);
     var parsedURL;
